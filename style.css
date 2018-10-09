@@ -1,0 +1,124 @@
+html,body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    background-color: #ffffff;
+    color: rgb(24, 1, 1);
+    font-size: 1.05rem;
+    font-family: "Oxygen", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: .025rem;
+    line-height: 1.618;
+    padding: 1rem 0;
+}
+
+.container { 
+    position: relative; 
+    margin: 0 auto; 
+    max-width: 800px; 
+    width: 100%; 
+}
+
+.column { width: inherit; }
+
+.add-bottom { margin-bottom: 2rem !important; }
+.left { float: left; }
+.right { float: right; }
+.center { text-align: center; }
+.hidden { display: none; }
+
+audio { display: none; }
+
+.control-panel, .track-list-wrapper {
+    margin: 0 auto;
+}
+
+.track-name {
+    display: flex;
+    font-size: 0;
+}
+
+.track-name span {
+    display: inline-block;
+    font-size: 1.05rem;
+    vertical-align: top;
+}
+
+.track-name span.action {
+    padding: 21px;
+    width: 30%;
+}
+
+.track-name span.np-name {
+    padding: 21px;
+    text-align: right;
+    width: 70%;
+}
+
+.track-list { padding: 0; }
+
+.track-list li {
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 21px 21px;
+}
+
+.track-list li:hover { background-color: rgba(0,0,0,.1); }
+
+.plTitle {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.plNum {
+    padding-left: 21px;
+    width: 25px;
+}
+
+.plLength {
+    padding-left: 21px;
+    right: 21px;
+    top: 0;
+    float: right;
+}
+
+.plSel,
+.plSel:hover {
+    background-color: rgba(0,0,0,.1);
+    color: #ffffff;
+    cursor: default !important;
+}
+
+.plyr--audio .plyr__controls {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 20px 20px 20px 13px;
+    width: 100%;
+}
+
+.plyr--audio .plyr__controls button.tab-focus:focus,
+.plyr--audio .plyr__controls button:hover,
+.plyr__play-large {
+    background: rgba(0,0,0,.1);
+}
+
+.plyr__progress--played,
+.plyr__volume--display {
+    color: rgba(0,0,0,.1);
+}
+
+.plyr--audio .plyr__progress--buffer,
+.plyr--audio .plyr__volume--display {
+    background: rgba(0,0,0,.1);
+}
+
+.plyr--audio .plyr__progress--buffer {
+    color: rgba(0,0,0,.1);
+}
+
+@media only screen and (max-width: 600px) {
+    .track-name span.action { display: none; }
+    .track-name span.np-name { display: block; text-align: center; width: 100%; }
+}
+
