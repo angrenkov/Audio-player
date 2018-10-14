@@ -11,22 +11,32 @@ html,body {
     padding: 1rem 0;
 }
 
-.container { 
-    position: relative; 
-    margin: 0 auto; 
-    max-width: 800px; 
-    width: 100%; 
+.mainwrap {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
 }
 
-.column { width: inherit; }
+.left {
+    float: left;
+}
 
-.add-bottom { margin-bottom: 2rem !important; }
-.left { float: left; }
-.right { float: right; }
-.center { text-align: center; }
-.hidden { display: none; }
+.right {
+    float: right;
+}
 
-audio { display: none; }
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+audio {
+    display: none;
+}
 
 .control-panel, .track-list-wrapper {
     margin: 0 auto;
@@ -54,7 +64,9 @@ audio { display: none; }
     width: 70%;
 }
 
-.track-list { padding: 0; }
+.track-list {
+    padding: 0;
+}
 
 .track-list li {
     cursor: pointer;
@@ -63,30 +75,32 @@ audio { display: none; }
     padding: 21px 21px;
 }
 
-.track-list li:hover { background-color: rgba(0,0,0,.1); }
+.track-list li:hover {
+    background-color: rgba(0,0,0,.1);
+}
 
-.plTitle {
+.playlist-item-title {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.plNum {
+.playlist-item-number {
     padding-left: 21px;
     width: 25px;
 }
 
-.plLength {
+.playlist-item-length {
     padding-left: 21px;
     right: 21px;
     top: 0;
     float: right;
 }
 
-.plSel,
-.plSel:hover {
+.playlist-item-selector,
+.playlist-item-selector:hover {
     background-color: rgba(0,0,0,.1);
     color: #ffffff;
-    cursor: default !important;
+    cursor: default;
 }
 
 .plyr--audio .plyr__controls {
@@ -118,7 +132,14 @@ audio { display: none; }
 }
 
 @media only screen and (max-width: 600px) {
-    .track-name span.action { display: none; }
-    .track-name span.np-name { display: block; text-align: center; width: 100%; }
+    .track-name span.action {
+        display: none;
+    }
+
+    .track-name span.np-name {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
 }
 

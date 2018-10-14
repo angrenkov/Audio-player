@@ -1,4 +1,5 @@
 let supportsAudio = !!document.createElement('audio').canPlayType;
+
 window.onload = function () {
     if (supportsAudio) {
         let player = new Plyr('#audio1', {
@@ -70,27 +71,35 @@ window.onload = function () {
             }];
 
         trackCount = tracks.length;
-        tracks.forEach(function (value, key) {
+        tracks.forEach((value, key) => {
             let trackNumber = value.track;
             let trackName = value.name;
             let trackDuration = value.duration;
+
             if ((trackNumber + '').length === 1) {
                 trackNumber = '0' + trackNumber;
             }
-            document.getElementsByClassName('track-list')[0].innerHTML += `<li onclick="playCurrent(${key})"> <div class="plItem"> <span class="plNum">${trackNumber}.</span> <span class="plTitle">${trackName}</span> <span class="plLength">${trackDuration}</span> </div> </li>`;
+            document.getElementsByClassName('track-list')[0].innerHTML +=
+                `<li onclick="playCurrent(${key})"> 
+                    <div class="playlist-item"> 
+                        <span class="playlist-item-number">${trackNumber}.</span> 
+                        <span class="playlist-item-title">${trackName}</span> 
+                        <span class="playlist-item-length">${trackDuration}</span> 
+                    </div> 
+                </li>`;
         });
 
-        const action = document.getElementsByClassName('action')[0];
-        const npName = document.getElementsByClassName('np-name')[0];
+        const ACTION = document.getElementsByClassName('action')[0];
+        const NP_NAME = document.getElementsByClassName('np-name')[0];
         audio = document.getElementsByTagName('audio')[0];
         audio.onplay = function () {
             playing = true;
-            action.innerHTML = 'Now Playing';
+            ACTION.innerHTML = 'Now Playing';
         };
 
         audio.onpause = function () {
             playing = false;
-            action.innerHTML = 'Paused';
+            ACTION.innerHTML = 'Paused';
         };
         
         li = document.getElementsByClassName('track-list li');
@@ -102,17 +111,25 @@ window.onload = function () {
         };
 
         loadTrack = function (id) {
-            if (document.getElementsByClassName('plSel').classList) {
-                document.getElementsByClassName('plSel').classList.remove('plSel');
-                document.getElementsByClassName('track-list li:eq(' + id + ')').classList.add('plSel');
+            if (document.getElementsByClassName('playlist-item-selector').classList) {
+                document.getElementsByClassName('playlist-item-selector').classList.remove('playlist-item-selector');
+                document.getElementsByClassName('track-list li:eq(' + id + ')').classList.add('playlist-item-selector');
             }
 
-            npName.innerHTML = tracks[id].name;
+            NP_NAME.innerHTML = tracks[id].name;
             index = id;
             audio.src = mediaPath + tracks[id].file + extension;
         };
 
-        extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
+        if (audio.canPlayType('audio/mpeg')) {
+            extension = '.mp3';
+        }
+        else {
+            if (audio.canPlayType('audio/ogg')) {
+                extension = '.ogg';
+            }
+            extension = '';
+        }
         loadTrack(index);
     } 
 }
