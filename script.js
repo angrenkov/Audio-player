@@ -40,7 +40,7 @@ window.onload = function () {
                 'file': 'track4'
             }, {
                 'track': 5,
-                'name': 'The Rolling Stones - Tou Cant Always Get What You Want',
+                'name': 'The Rolling Stones - You Cant Always Get What You Want',
                 'duration': '7:28',
                 'file': 'track5'
             }, {
